@@ -41,12 +41,20 @@ public class Player : MonoBehaviour
             FlipObject();
         }
     }
-
     void FlipObject()
     {
         Vector3 scale = transform.localScale;
         scale.x = -scale.x;
         transform.localScale = scale;
+        
+
+        Vector3 swordScale = sword.transform.localScale;
+        print(swordScale);
+        swordScale.y = -swordScale.y;
+        swordScale.x = -swordScale.x;
+        print(swordScale);
+        sword.transform.localScale = swordScale;
+        print("Sword Flipped!");
     }
 
     private void FixedUpdate()
