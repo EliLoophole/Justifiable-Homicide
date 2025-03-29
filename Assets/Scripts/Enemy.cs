@@ -15,7 +15,8 @@ public class Enemy : MonoBehaviour
 
     public bool deadly = false;
 
-    private float rotationSpeed = 1f;
+    private float rotationSpeed = 10f;
+    public float rotationOffset = 160f;
 
     public bool rotateTowardsPlayer = true;
 
@@ -51,7 +52,7 @@ public class Enemy : MonoBehaviour
             Vector3 direction = playerTransform.position - transform.position;
             float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
 
-            Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+            Quaternion targetRotation = Quaternion.Euler(0, 0, angle + rotationOffset);
 
             transform.rotation = Quaternion.Lerp(transform.rotation,targetRotation, Time.deltaTime * rotationSpeed);
         }
