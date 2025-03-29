@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpd: 4
-  sword: {fileID: 0}
+  sword: {fileID: 3629101850342854551}
 --- !u!50 &-2007358464978892082
 Rigidbody2D:
   serializedVersion: 4
