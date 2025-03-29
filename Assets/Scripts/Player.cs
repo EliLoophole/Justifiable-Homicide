@@ -21,17 +21,16 @@ public class Player : MonoBehaviour
     {
         movementDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = transform.position.z;
         
-        float angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x);
-        print(angle);
+        float angle = Mathf.Atan2(mousePos.y - transform.position.y,mousePos.x - transform.position.x);
 
-        Vector3 newPositon = transform.position + new Vector3(Mathf.Cos(angle),Mathf.Sin(angle));
+        Vector3 newPositon = transform.position + new Vector3(Mathf.Cos(angle),Mathf.Sin(angle)*.5f);
         sword.transform.position = newPositon;
 
-        //float rotationAngle = angle*Mathf.Rad2Deg;
-        //sword.transform.rotation = Quaternion.Euler(0,0,rotationAngle);
+        float rotationAngle = angle*Mathf.Rad2Deg;
+        sword.transform.rotation = Quaternion.Euler(0,0,rotationAngle);
     }
 
     private void FixedUpdate()
