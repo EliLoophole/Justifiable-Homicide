@@ -8,14 +8,18 @@ public class Enemy : MonoBehaviour
     public int health = 1;
 
     public float moveSpeed = 1f;
+    public float dashSpeed = 0f;
 
     public bool moving = true;
 
-    public float dashTime = 0f;
+    private float dashTime = 0f;
+    private bool isDashing = false;
+    private Vector2 dashDirection;
 
     public bool deadly = false;
 
-    private float rotationSpeed = 1f;
+    private float rotationSpeed = 10f;
+    public float rotationOffset = 160f;
 
     public bool rotateTowardsPlayer = true;
 
@@ -31,11 +35,14 @@ public class Enemy : MonoBehaviour
 
         player = FindObjectOfType<Player>();
         playerTransform = player.GetComponent<Transform>();
+
+        Dash(playerTransform.position, 1f, 10f);
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if(moveSpeed > 0 && player != null && moving)
         {
             Move();
@@ -51,24 +58,37 @@ public class Enemy : MonoBehaviour
             Vector3 direction = playerTransform.position - transform.position;
             float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
 
-            Quaternion targetRotation = Quaternion.Euler(0, 0, angle);
+            Quaternion targetRotation = Quaternion.Euler(0, 0, angle + rotationOffset);
 
             transform.rotation = Quaternion.Lerp(transform.rotation,targetRotation, Time.deltaTime * rotationSpeed);
         }
     }
 
-    public void Dash(Vector2 targetPos, float time, float speed)
+    IEnumerator Dash(Vector2 targetPos, float time, float speed)
     {
+        Vector2 pos = new Vector2 (transform.position.x,transform.position.y);
 
-    }
-
-    private void HandleDash()
-    {
-        if (dashTime > 0f)
+        dashDirection = targetPos - pos;
+        isDashing = true;
+        moving = false;
+        dashTime = time;
+        
+        while (dashTime > 0f)
         {
             moving = false;
             dashTime -= Time.deltaTime;
+            transform.Translate(dashDirection.normalized * dashSpeed * Time.deltaTime);
+
+            if (dashTime < 0f)
+            {
+                moving = true;
+                isDashing = false;
+                yield return null;
+            }
+
         }
+
+
     }
 
 }
