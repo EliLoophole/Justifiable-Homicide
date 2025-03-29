@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     {
         transform = GetComponent<Transform>();
 
-        player = FindObjectOfType<Player>()
+        player = FindObjectOfType<Player>();
         playerTransform = player.GetComponent<Transform>();
     }
 
