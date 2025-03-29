@@ -161,8 +161,8 @@ MonoBehaviour:
   health: 2
   stunTime: 0
   attackRange: 30
-  stopDistance: 1
-  attackSpeed: 1
+  stopDistance: 30
+  attackSpeed: 0.5
   attacking: 0
   moveSpeed: 1
   moving: 1
@@ -175,8 +175,8 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   transform: {fileID: 0}
   distanceFromPlayer: 0
-  dashLength: 0.3
-  dashSpeed: 10
+  dashLength: 0.1
+  dashSpeed: 15
 --- !u!70 &4466393964039788821
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
