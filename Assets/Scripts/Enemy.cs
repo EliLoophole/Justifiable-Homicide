@@ -12,7 +12,8 @@ public class Enemy : MonoBehaviour
 
     public bool moving = true;
 
-    private float dashTime = 0f;
+    public bool DashButton = false;
+
     private bool isDashing = false;
     private Vector2 dashDirection;
 
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
     public float rotationOffset = 160f;
 
     public bool rotateTowardsPlayer = true;
+    private Transform spriteTransform;
 
     private Player player;
     private Transform playerTransform;
@@ -35,19 +37,25 @@ public class Enemy : MonoBehaviour
 
         player = FindObjectOfType<Player>();
         playerTransform = player.GetComponent<Transform>();
+        spriteTransform = GetComponentInChildren<SpriteRenderer>().transform;
+        
 
-        Dash(playerTransform.position, 1f, 10f);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        if(DashButton)
+        {
+            StartCoroutine(Dash(playerTransform.position, 0.1f, dashSpeed));
+            DashButton = false;
+        }
+
         if(moveSpeed > 0 && player != null && moving)
         {
             Move();
         }
-
     }
 
     public void Move()
@@ -60,19 +68,20 @@ public class Enemy : MonoBehaviour
 
             Quaternion targetRotation = Quaternion.Euler(0, 0, angle + rotationOffset);
 
-            transform.rotation = Quaternion.Lerp(transform.rotation,targetRotation, Time.deltaTime * rotationSpeed);
+            spriteTransform.rotation = Quaternion.Lerp(transform.rotation,targetRotation, Time.deltaTime * rotationSpeed);
         }
     }
 
     IEnumerator Dash(Vector2 targetPos, float time, float speed)
     {
-        Vector2 pos = new Vector2 (transform.position.x,transform.position.y);
+        Debug.Log("dashing it");
 
-        dashDirection = targetPos - pos;
+        dashDirection = (targetPos - (Vector2)transform.position).normalized;
+        dashDirection /= dashDirection.magnitude;
         isDashing = true;
         moving = false;
-        dashTime = time;
-        
+        float dashTime = time;
+
         while (dashTime > 0f)
         {
             moving = false;
@@ -83,9 +92,10 @@ public class Enemy : MonoBehaviour
             {
                 moving = true;
                 isDashing = false;
-                yield return null;
+
             }
 
+            yield return null;
         }
 
 
