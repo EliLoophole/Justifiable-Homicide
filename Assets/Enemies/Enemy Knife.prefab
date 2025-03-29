@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3240829834938569247}
   - component: {fileID: 3210150577793819986}
   - component: {fileID: 6316561186491564133}
-  - component: {fileID: 870093374745684117}
+  - component: {fileID: 3772203295592440373}
   m_Layer: 0
   m_Name: Enemy Knife
   m_TagString: Untagged
@@ -145,7 +145,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &6316561186491564133
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ CircleCollider2D:
   m_Offset: {x: -0.034226805, y: -0.02843839}
   serializedVersion: 2
   m_Radius: 0.30421096
---- !u!114 &870093374745684117
+--- !u!114 &3772203295592440373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,16 +190,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8362804900116420476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce6731440043ab344b2f21c9cf46db8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c1b4654eabba3d469f4700a09243e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
   stunTime: 0
-  moveSpeed: 5
-  dashSpeed: 100
+  attackRange: 10
+  attackSpeed: 0
+  attacking: 0
+  moveSpeed: 4
   moving: 1
-  DashButton: 0
   deadly: 1
-  rotationOffset: -130
+  rotationOffset: -120
   rotateTowardsPlayer: 1
+  spriteTransform: {fileID: 0}
+  rb: {fileID: 0}
+  player: {fileID: 0}
+  playerTransform: {fileID: 0}
   transform: {fileID: 0}

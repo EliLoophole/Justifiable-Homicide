@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3258289977143643067}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.29882422, w: 0.95430815}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3240829834938569247}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -34.774}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8239902494804381514
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 667096137, guid: 9704857e9ea7db14cb1bf2c069e8a6c9, type: 3}
+  m_Sprite: {fileID: -233972369, guid: 31dde3691019582489a6705a9ab6d35b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,10 +94,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3240829834938569247}
   - component: {fileID: 3210150577793819986}
-  - component: {fileID: 8976533768668477424}
-  - component: {fileID: 4466393964039788821}
+  - component: {fileID: 6316561186491564133}
+  - component: {fileID: 5004318789007363500}
   m_Layer: 0
-  m_Name: Enemy Sword
+  m_Name: Enemy Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,40 +145,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!114 &8976533768668477424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8362804900116420476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28ed5555409c8d94aa5bec5e1eac9776, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 2
-  stunTime: 0
-  attackRange: 4
-  stopDistance: 1
-  attackSpeed: 1
-  attacking: 0
-  moveSpeed: 1
-  moving: 1
-  deadly: 0
-  rotationOffset: -120
-  rotateTowardsPlayer: 1
-  spriteTransform: {fileID: 0}
-  rb: {fileID: 0}
-  player: {fileID: 0}
-  playerTransform: {fileID: 0}
-  transform: {fileID: 0}
-  distanceFromPlayer: 0
-  dashLength: 0.25
-  dashSpeed: 20
---- !u!70 &4466393964039788821
-CapsuleCollider2D:
+  m_Constraints: 0
+--- !u!58 &6316561186491564133
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -209,6 +178,39 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.028812766}
-  m_Size: {x: 0.5, y: 1.181109}
-  m_Direction: 0
+  m_Offset: {x: 0.018414855, y: -0.02843839}
+  serializedVersion: 2
+  m_Radius: 0.39896595
+--- !u!114 &5004318789007363500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8362804900116420476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5a00ac7db883d4c9b647fe6b390adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  stunTime: 0
+  attackRange: 20
+  stopDistance: 15
+  attackSpeed: 2
+  attacking: 0
+  moveSpeed: 1
+  moving: 1
+  deadly: 0
+  rotationOffset: -140
+  rotateTowardsPlayer: 1
+  spriteTransform: {fileID: 0}
+  rb: {fileID: 0}
+  player: {fileID: 0}
+  playerTransform: {fileID: 0}
+  transform: {fileID: 0}
+  distanceFromPlayer: 0
+  projectileSpeed: 3
+  projectileCount: 2
+  timeBetweenProjectiles: 0.5
+  projectile: {fileID: 0}

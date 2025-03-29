@@ -9,6 +9,8 @@ public abstract class Enemy : MonoBehaviour
     public float stunTime = 0f;
 
     public float attackRange = 10f;
+    public float stopDistance = 1f;
+
     public float attackSpeed = 1.0f;
 
     private float attackTimer = 1.0f;
@@ -35,6 +37,8 @@ public abstract class Enemy : MonoBehaviour
 
     public Transform transform;
 
+    public float distanceFromPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +55,9 @@ public abstract class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        distanceFromPlayer = (transform.position - playerTransform.position).magnitude;
+
         if(stunTime > 0f)
         {
             stunTime -= Time.deltaTime;
@@ -68,8 +75,12 @@ public abstract class Enemy : MonoBehaviour
     }
 
     public void Move()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
+        {
+            if (distanceFromPlayer > stopDistance)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
+            }
+            
         if (rotateTowardsPlayer)
         {
             Vector3 direction = playerTransform.position - transform.position;
@@ -137,7 +148,7 @@ public abstract class Enemy : MonoBehaviour
         attackTimer -= Time.deltaTime;
 
 
-        if ((transform.position - playerTransform.position).magnitude < attackRange && stunTime <= 0f && attacking == false)
+        if (distanceFromPlayer < attackRange && stunTime <= 0f && attacking == false)
         {
             if(attackTimer <= 0f)
             {
