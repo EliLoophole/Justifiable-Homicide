@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
 
     public int health = 1;
+    public float stunTime = 0f;
 
     public float moveSpeed = 1f;
     public float dashSpeed = 0f;
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
 
     public bool rotateTowardsPlayer = true;
     private Transform spriteTransform;
+    private Rigidbody2D rb;
 
     private Player player;
     private Transform playerTransform;
@@ -38,6 +40,7 @@ public class Enemy : MonoBehaviour
         player = FindObjectOfType<Player>();
         playerTransform = player.GetComponent<Transform>();
         spriteTransform = GetComponentInChildren<SpriteRenderer>().transform;
+        rb = GetComponent<Rigidbody2D>();
         
 
     }
@@ -45,6 +48,14 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(stunTime > 0f)
+        {
+            stunTime -= Time.deltaTime;
+        }
+        else
+        {
+            rb.velocity = new Vector2(0f,0f);
+        }
 
         if(DashButton)
         {
@@ -52,7 +63,7 @@ public class Enemy : MonoBehaviour
             DashButton = false;
         }
 
-        if(moveSpeed > 0 && player != null && moving)
+        if(moveSpeed > 0 && player != null && moving && stunTime <= 0f)
         {
             Move();
         }
@@ -68,7 +79,7 @@ public class Enemy : MonoBehaviour
 
             Quaternion targetRotation = Quaternion.Euler(0, 0, angle + rotationOffset);
 
-            spriteTransform.rotation = Quaternion.Lerp(transform.rotation,targetRotation, Time.deltaTime * rotationSpeed);
+            spriteTransform.rotation = Quaternion.Lerp(spriteTransform.rotation,targetRotation, Time.deltaTime * rotationSpeed);
         }
     }
 
@@ -99,6 +110,23 @@ public class Enemy : MonoBehaviour
         }
 
 
+    }
+
+    public void TakeDamage(int damage)
+    {
+        stunTime = 1.0f;
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        //Award player moneys
+        //Death particles
+        Destroy(this.gameObject);
     }
 
 }
