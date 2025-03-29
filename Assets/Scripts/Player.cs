@@ -31,6 +31,22 @@ public class Player : MonoBehaviour
 
         float rotationAngle = angle*Mathf.Rad2Deg;
         sword.transform.rotation = Quaternion.Euler(0,0,rotationAngle);
+
+        if (mousePos.x >transform.position.x && transform.localScale.x<0)
+        {
+            FlipObject();
+        }
+        else if (mousePos.x < transform.position.x && transform.localScale.x > 0)
+        {
+            FlipObject();
+        }
+    }
+
+    void FlipObject()
+    {
+        Vector3 scale = transform.localScale;
+        scale.x = -scale.x;
+        transform.localScale = scale;
     }
 
     private void FixedUpdate()
