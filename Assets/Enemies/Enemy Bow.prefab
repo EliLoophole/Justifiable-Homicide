@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3258289977143643067}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.54018813, w: 0.8415444}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3240829834938569247}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -65.393}
 --- !u!212 &8239902494804381514
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   moveSpeed: 1
   moving: 1
   deadly: 0
-  rotationOffset: -140
+  rotationOffset: -150
   rotateTowardsPlayer: 1
   spriteTransform: {fileID: 0}
   rb: {fileID: 0}
@@ -210,7 +210,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   transform: {fileID: 0}
   distanceFromPlayer: 0
-  projectileSpeed: 3
+  projectileSpeed: 5
   projectileCount: 2
   timeBetweenProjectiles: 0.5
-  projectile: {fileID: 0}
+  projectile: {fileID: 1971858668310610473, guid: 3998dcfcb90d2014996ff5c01c034397, type: 3}

@@ -20,11 +20,21 @@ public class ShooterEnemy : Enemy
 
         while (projectiles > 0)
         {
+            shotWait -= Time.deltaTime;
+
             if (shotWait <= 0f)
             {
-                Instantiate(projectile,transform.position,Quaternion.identity);
+                Vector3 direction = playerTransform.position - transform.position;
+                float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
+
+                Quaternion targetRotation = Quaternion.Euler(0, 0, angle - 90);
+
+                GameObject newProjectile = Instantiate(projectile,transform.position,targetRotation);
+                newProjectile.GetComponent<Projectile>().speed = projectileSpeed;
+
                 projectiles--;
                 Debug.Log("Shoot");
+                shotWait = timeBetweenProjectiles;
             }
             yield return null;
         }

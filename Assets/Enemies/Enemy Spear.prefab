@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3258289977143643067}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.39556023, w: 0.9184401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3240829834938569247}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -46.602}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8239902494804381514
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1953564125, guid: 07d686054257d164fa1b923b4b1cfcf8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb69cd81f64cae74c85361725b99d799, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,10 +94,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3240829834938569247}
   - component: {fileID: 3210150577793819986}
-  - component: {fileID: 3772203295592440373}
-  - component: {fileID: 3129668353307843584}
+  - component: {fileID: 8976533768668477424}
+  - component: {fileID: 4466393964039788821}
   m_Layer: 0
-  m_Name: Enemy Knife
+  m_Name: Enemy Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,7 +146,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3772203295592440373
+--- !u!114 &8976533768668477424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,19 +155,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8362804900116420476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c1b4654eabba3d469f4700a09243e26, type: 3}
+  m_Script: {fileID: 11500000, guid: 28ed5555409c8d94aa5bec5e1eac9776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 2
   stunTime: 0
-  attackRange: 10
-  stopDistance: 0.1
-  attackSpeed: 0
+  attackRange: 30
+  stopDistance: 1
+  attackSpeed: 1
   attacking: 0
-  moveSpeed: 4
+  moveSpeed: 1
   moving: 1
-  deadly: 1
-  rotationOffset: -120
+  deadly: 0
+  rotationOffset: -90
   rotateTowardsPlayer: 1
   spriteTransform: {fileID: 0}
   rb: {fileID: 0}
@@ -175,7 +175,9 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   transform: {fileID: 0}
   distanceFromPlayer: 0
---- !u!70 &3129668353307843584
+  dashLength: 0.3
+  dashSpeed: 10
+--- !u!70 &4466393964039788821
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,6 +209,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.040182114, y: 0.16875088}
-  m_Size: {x: 0.41963577, y: 0.467932}
+  m_Offset: {x: 0.014784515, y: 0.4088421}
+  m_Size: {x: 0.33416808, y: 0.54090524}
   m_Direction: 0
