@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1953564125, guid: 07d686054257d164fa1b923b4b1cfcf8, type: 3}
+  m_Sprite: {fileID: 667096137, guid: 9704857e9ea7db14cb1bf2c069e8a6c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6316561186491564133}
   - component: {fileID: 870093374745684117}
   m_Layer: 0
-  m_Name: Enemy Knife
+  m_Name: Enemy Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,9 +178,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.034226805, y: -0.02843839}
+  m_Offset: {x: 0.018414855, y: -0.02843839}
   serializedVersion: 2
-  m_Radius: 0.30421096
+  m_Radius: 0.39896595
 --- !u!114 &870093374745684117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,9 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6731440043ab344b2f21c9cf46db8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 3
   stunTime: 0
-  moveSpeed: 5
+  moveSpeed: 4
   dashSpeed: 100
   moving: 1
   DashButton: 0

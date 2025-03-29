@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
 
     public int health = 1;
     public float stunTime = 0f;
 
+    public float attackRange = 10f;
+    public float attackSpeed = 1.0f;
+
+    private float attackTimer = 1.0f;
+    public bool attacking = false;
+
     public float moveSpeed = 1f;
-    public float dashSpeed = 0f;
 
     public bool moving = true;
-
-    public bool DashButton = false;
 
     private bool isDashing = false;
     private Vector2 dashDirection;
@@ -24,11 +27,11 @@ public class Enemy : MonoBehaviour
     public float rotationOffset = 160f;
 
     public bool rotateTowardsPlayer = true;
-    private Transform spriteTransform;
-    private Rigidbody2D rb;
+    public Transform spriteTransform;
+    public Rigidbody2D rb;
 
-    private Player player;
-    private Transform playerTransform;
+    public Player player;
+    public Transform playerTransform;
 
     public Transform transform;
 
@@ -57,16 +60,11 @@ public class Enemy : MonoBehaviour
             rb.velocity = new Vector2(0f,0f);
         }
 
-        if(DashButton)
-        {
-            StartCoroutine(Dash(playerTransform.position, 0.1f, dashSpeed));
-            DashButton = false;
-        }
-
         if(moveSpeed > 0 && player != null && moving && stunTime <= 0f)
         {
             Move();
         }
+        AttackCheck();
     }
 
     public void Move()
@@ -83,10 +81,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    IEnumerator Dash(Vector2 targetPos, float time, float speed)
+    public IEnumerator Dash(Vector2 targetPos, float time, float speed)
     {
-        Debug.Log("dashing it");
-
         dashDirection = (targetPos - (Vector2)transform.position).normalized;
         dashDirection /= dashDirection.magnitude;
         isDashing = true;
@@ -97,7 +93,15 @@ public class Enemy : MonoBehaviour
         {
             moving = false;
             dashTime -= Time.deltaTime;
-            transform.Translate(dashDirection.normalized * dashSpeed * Time.deltaTime);
+
+            if(stunTime > 0f)
+            {
+                isDashing = false;
+                moving = true;
+                yield break;
+            }
+
+            transform.Translate(dashDirection.normalized * speed * Time.deltaTime);
 
             if (dashTime < 0f)
             {
@@ -108,7 +112,6 @@ public class Enemy : MonoBehaviour
 
             yield return null;
         }
-
 
     }
 
@@ -128,5 +131,28 @@ public class Enemy : MonoBehaviour
         //Death particles
         Destroy(this.gameObject);
     }
+
+    private void AttackCheck()
+    {
+        attackTimer -= Time.deltaTime;
+
+
+        if ((transform.position - playerTransform.position).magnitude < attackRange && stunTime <= 0f && attacking == false)
+        {
+            if(attackTimer <= 0f)
+            {
+                Debug.Log("Attack");
+                UseAttack();
+            }
+        }
+    }
+
+    private void UseAttack()
+    {
+        StartCoroutine(Attack());
+        attackTimer = attackSpeed;
+    }
+
+    public abstract IEnumerator Attack();
 
 }
