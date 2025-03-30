@@ -196,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parrying: 0
   playerTransform: {fileID: 2189372705022867122}
+  parryParticles: {fileID: 8693727882541067677, guid: e3c539350b222af429f90505be042ffc, type: 3}
   parryDamage: 1
   parryVelocity: 2
   KnockbackForce: 700

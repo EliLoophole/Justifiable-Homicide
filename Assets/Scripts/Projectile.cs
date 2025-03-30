@@ -11,7 +11,10 @@ public class Projectile : MonoBehaviour
     private Transform transform;
     private Transform playerTransform;
 
+    public GameObject deathParticles;
+
     public bool gracePeriod = false;
+    public bool destroyOnParry = false;
 
     public bool canHitEnemies = false;
 
@@ -48,7 +51,7 @@ public class Projectile : MonoBehaviour
         if (player != null)
         {
             player.Hurt();
-            Destroy(this.gameObject);
+            Kill();
         }
         else
         {
@@ -56,7 +59,7 @@ public class Projectile : MonoBehaviour
             if (enemy != null && canHitEnemies)
             {
                 enemy.Hurt(1);
-                Destroy(this.gameObject);
+                Kill();
             }
         
         }
@@ -68,5 +71,11 @@ public class Projectile : MonoBehaviour
         canHitEnemies = false;
         yield return new WaitForSeconds(1f);
         canHitEnemies = true;
+    }
+
+    public void Kill()
+    {
+        Instantiate(deathParticles,transform.position,Quaternion.identity);
+        Destroy(this.gameObject);
     }
 }

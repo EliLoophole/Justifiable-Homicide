@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     private Animator swordAnimator;
 
     private SpriteRenderer swordSprite;
+    private Color originalColor;
 
     void Start()
     {
@@ -29,6 +30,8 @@ public class Player : MonoBehaviour
         swordAnimator = sword.GetComponent<Animator>();
 
         rb = GetComponent<Rigidbody2D>();
+
+        originalColor = swordSprite.color;
     }
 
     // Update is called once per frame
@@ -63,8 +66,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator Parry()
     {
-        Color originalColor = swordSprite.color;
-        swordSprite.color = Color.red;
+        swordSprite.color = Color.yellow;
         canMove = false;
         swordScript.parrying = true;
 
@@ -91,7 +93,7 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        movementDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        movementDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         rb.velocity = movementDir * movementSpd;
 
     }

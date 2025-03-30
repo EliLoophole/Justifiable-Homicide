@@ -9,6 +9,8 @@ public class PlayerSword : MonoBehaviour
     private Transform transform;
     public Transform playerTransform;
 
+    public GameObject parryParticles;
+
     public int parryDamage = 1;
     public float parryVelocity = 2.0f;
     public float KnockbackForce = 10f;
@@ -73,6 +75,13 @@ public class PlayerSword : MonoBehaviour
     public void HitProjectile(Projectile projectile)
     {
         ParryAnimation();
+
+        Instantiate(parryParticles,transform.position,Quaternion.identity);
+
+        if(projectile.destroyOnParry)
+        {
+            projectile.Kill();
+        }
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;

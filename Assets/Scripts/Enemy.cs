@@ -39,6 +39,8 @@ public abstract class Enemy : MonoBehaviour
 
     public float distanceFromPlayer;
 
+    public GameObject deathParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -145,7 +147,7 @@ public abstract class Enemy : MonoBehaviour
     private void Die()
     {
         //Award player moneys
-        //Death particles
+        Instantiate(deathParticles,transform.position,Quaternion.identity);
         Destroy(this.gameObject);
     }
 
