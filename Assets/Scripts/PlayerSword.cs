@@ -77,6 +77,6 @@ public class PlayerSword : MonoBehaviour
         Debug.Log(Knockback);
 
         enemy.TakeDamage(parryDamage);
-
+        //bush did 9/11
     }
 }
