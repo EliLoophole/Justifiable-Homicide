@@ -158,7 +158,6 @@ public abstract class Enemy : MonoBehaviour
         {
             if(attackTimer <= 0f)
             {
-                Debug.Log("Attack");
                 UseAttack();
             }
         }

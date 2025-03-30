@@ -53,7 +53,8 @@ public class PlayerSword : MonoBehaviour
     public void ParryAnimation()
     {
         animator.enabled = true;
-        animator.Play("Parry",-1,0f);
+        animator.Play("swordParry",-1,0f);
+        print("Parry Animation Played!");
     }    
 
     public void HitProjectile(Projectile projectile)
@@ -76,8 +77,6 @@ public class PlayerSword : MonoBehaviour
         Rigidbody2D enemyRB = enemy.GetComponent<Rigidbody2D>();
         Vector2 Knockback = ((Vector2)(playerTransform.position - enemy.transform.position).normalized) * -KnockbackForce;
         enemyRB.AddForce(Knockback);
-
-        Debug.Log(Knockback);
 
         enemy.Hurt(parryDamage);
         //bush did 9/11
