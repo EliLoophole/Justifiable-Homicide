@@ -12,10 +12,13 @@ public class PlayerSword : MonoBehaviour
     public int parryDamage = 1;
     public float KnockbackForce = 10f;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         transform = GetComponent<Transform>();
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -38,8 +41,15 @@ public class PlayerSword : MonoBehaviour
         }
     }
 
+    public void ParryAnimation()
+    {
+        animator.enabled = true;
+        animator.Play("Parry",-1,0f);
+    }    
+
     public void HitEnemy(Enemy enemy)
     {
+        ParryAnimation();
         Rigidbody2D enemyRB = enemy.GetComponent<Rigidbody2D>();
         Vector2 Knockback = ((Vector2)(playerTransform.position - enemy.transform.position).normalized) * -KnockbackForce;
         enemyRB.AddForce(Knockback);
