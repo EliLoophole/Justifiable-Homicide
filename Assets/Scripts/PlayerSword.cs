@@ -31,12 +31,20 @@ public class PlayerSword : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Enemy enemy = other.gameObject.GetComponent<Enemy>();
-
         if(enemy != null)
         {
             if (parrying && enemy.deadly && enemy.stunTime <= 0f)
             {
                 HitEnemy(enemy);
+            }
+        }
+
+        Projectile projectile = other.GetComponent<Projectile>();
+        if (projectile != null)
+        {
+            if (parrying)
+            {
+                HitProjectile(projectile);
             }
         }
     }
@@ -47,6 +55,11 @@ public class PlayerSword : MonoBehaviour
         animator.Play("Parry",-1,0f);
     }    
 
+    public void HitProjectile(Projectile projectile)
+    {
+        ParryAnimation();
+        projectile.transform.rotation = Quaternion.Euler(0, 0, projectile.transform.eulerAngles.z + 180);
+    }
     public void HitEnemy(Enemy enemy)
     {
         ParryAnimation();
