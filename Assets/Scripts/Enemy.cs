@@ -132,7 +132,7 @@ public abstract class Enemy : MonoBehaviour
 
     }
 
-    public void TakeDamage(int damage)
+    public void Hurt(int damage)
     {
         stunTime = 1.0f;
         health -= damage;

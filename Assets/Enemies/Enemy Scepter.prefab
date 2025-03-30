@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3258289977143643067}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.54018813, w: 0.8415444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3240829834938569247}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -65.393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8239902494804381514
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -233972369, guid: 31dde3691019582489a6705a9ab6d35b, type: 3}
+  m_Sprite: {fileID: 1180094567, guid: 7a06f849ec367774c83ca773c610507b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6316561186491564133}
   - component: {fileID: 5004318789007363500}
   m_Layer: 0
-  m_Name: Enemy Bow
+  m_Name: Enemy Scepter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 238956320384157438}
-  - {fileID: 7557778719603565575}
+  - {fileID: 4330762044821617740}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3210150577793819986
@@ -146,7 +146,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &6316561186491564133
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -196,14 +196,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   stunTime: 0
-  attackRange: 20
-  stopDistance: 15
-  attackSpeed: 2
+  attackRange: 10
+  stopDistance: 9
+  attackSpeed: 5
   attacking: 0
   moveSpeed: 1
   moving: 1
   deadly: 0
-  rotationOffset: -150
+  rotationOffset: 0
   rotateTowardsPlayer: 1
   spriteTransform: {fileID: 0}
   rb: {fileID: 0}
@@ -211,11 +211,11 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   transform: {fileID: 0}
   distanceFromPlayer: 0
-  projectileSpeed: 8
-  projectileCount: 2
+  projectileSpeed: 2.5
+  projectileCount: 1
   timeBetweenProjectiles: 0.5
-  projectile: {fileID: 1971858668310610473, guid: 3998dcfcb90d2014996ff5c01c034397, type: 3}
---- !u!1001 &3580542338761337586
+  projectile: {fileID: 1971858668310610473, guid: d2984ae547ac55548aa493ec97110edd, type: 3}
+--- !u!1001 &7299155051777471161
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -229,11 +229,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436272765579792117, guid: 0fada1740de5f6040a73754772007903, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.044
+      value: 0.013
       objectReference: {fileID: 0}
     - target: {fileID: 6436272765579792117, guid: 0fada1740de5f6040a73754772007903, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.314
+      value: -0.476
       objectReference: {fileID: 0}
     - target: {fileID: 6436272765579792117, guid: 0fada1740de5f6040a73754772007903, type: 3}
       propertyPath: m_LocalPosition.z
@@ -272,8 +272,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fada1740de5f6040a73754772007903, type: 3}
---- !u!4 &7557778719603565575 stripped
+--- !u!4 &4330762044821617740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6436272765579792117, guid: 0fada1740de5f6040a73754772007903, type: 3}
-  m_PrefabInstance: {fileID: 3580542338761337586}
+  m_PrefabInstance: {fileID: 7299155051777471161}
   m_PrefabAsset: {fileID: 0}

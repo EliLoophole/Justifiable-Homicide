@@ -5,21 +5,38 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
+    private int lives = 3;
+
+    [SerializeField]
     private float movementSpd = 1f;
+    public bool canMove = true;
+
+    public float parryDuration = 0.2f;
+
     private Rigidbody2D rb;
     private Vector2 movementDir;
     [SerializeField]
     private GameObject sword;
+    private PlayerSword swordScript;
+
+    private SpriteRenderer swordSprite;
 
     void Start()
     {
+        swordSprite = sword.GetComponentInChildren<SpriteRenderer>();
+        swordScript = sword.GetComponent<PlayerSword>();
+
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        movementDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            StartCoroutine(Parry());
+        }
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = transform.position.z;
@@ -41,6 +58,21 @@ public class Player : MonoBehaviour
             FlipObject();
         }
     }
+
+    public IEnumerator Parry()
+    {
+        Color originalColor = swordSprite.color;
+        swordSprite.color = Color.red;
+        canMove = false;
+        swordScript.parrying = true;
+
+        yield return new WaitForSeconds(parryDuration);
+
+        swordScript.parrying = false;
+        swordSprite.color = originalColor;
+        canMove = true;
+    }
+
     void FlipObject()
     {
         Vector3 scale = transform.localScale;
@@ -57,9 +89,25 @@ public class Player : MonoBehaviour
         print("Sword Flipped!");
     }
 
+    private void Move()
+    {
+        movementDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        rb.velocity = movementDir * movementSpd;
+
+    }
+
     private void FixedUpdate()
     {
-        rb.velocity = movementDir * movementSpd;
+        if(canMove) Move();
+    }
+
+    public void Hurt()
+    {
+        lives--;
+        if(lives < 1)
+        {
+            Die();
+        }
     }
 
     private void Die()

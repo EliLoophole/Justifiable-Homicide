@@ -10,6 +10,7 @@ public class PlayerSword : MonoBehaviour
     public Transform playerTransform;
 
     public int parryDamage = 1;
+    public float parryVelocity = 2.0f;
     public float KnockbackForce = 10f;
 
     public Animator animator;
@@ -63,9 +64,11 @@ public class PlayerSword : MonoBehaviour
         mousePos.z = 0f;
 
         Vector3 direction = (mousePos - projectile.transform.position).normalized;
+        projectile.canHitEnemies = true;
         float angle = Mathf.Atan2(direction.y, direction.x)*Mathf.Rad2Deg;
 
         projectile.transform.rotation = Quaternion.Euler(0,0,angle-90);
+        projectile.speed *= parryVelocity;
     }
     public void HitEnemy(Enemy enemy)
     {
@@ -76,7 +79,7 @@ public class PlayerSword : MonoBehaviour
 
         Debug.Log(Knockback);
 
-        enemy.TakeDamage(parryDamage);
+        enemy.Hurt(parryDamage);
         //bush did 9/11
     }
 }
