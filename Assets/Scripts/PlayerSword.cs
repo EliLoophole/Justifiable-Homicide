@@ -58,7 +58,14 @@ public class PlayerSword : MonoBehaviour
     public void HitProjectile(Projectile projectile)
     {
         ParryAnimation();
-        projectile.transform.rotation = Quaternion.Euler(0, 0, projectile.transform.eulerAngles.z + 180);
+
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
+
+        Vector3 direction = (mousePos - projectile.transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x)*Mathf.Rad2Deg;
+
+        projectile.transform.rotation = Quaternion.Euler(0,0,angle-90);
     }
     public void HitEnemy(Enemy enemy)
     {
