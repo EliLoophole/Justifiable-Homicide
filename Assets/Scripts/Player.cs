@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject sword;
     private PlayerSword swordScript;
+    private Animator swordAnimator;
 
     private SpriteRenderer swordSprite;
 
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     {
         swordSprite = sword.GetComponentInChildren<SpriteRenderer>();
         swordScript = sword.GetComponent<PlayerSword>();
+        swordAnimator = sword.GetComponent<Animator>();
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -82,12 +84,9 @@ public class Player : MonoBehaviour
 
 
         Vector3 swordScale = sword.transform.localScale;
-        print(swordScale);
         swordScale.y = -swordScale.y;
         swordScale.x = -swordScale.x;
-        print(swordScale);
         sword.transform.localScale = swordScale;
-        print("Sword Flipped!");
     }
 
     private void Move()

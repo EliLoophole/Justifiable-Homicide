@@ -54,8 +54,14 @@ public class PlayerSword : MonoBehaviour
     public void ParryAnimation()
     {
         animator.enabled = true;
-        animator.Play("swordParry",-1,0f);
-        print("Parry Animation Played!");
+        if (transform.localScale.x < 0)
+        {
+            animator.Play("swordParry_Flipped", -1, 0f);
+        }
+        else
+        {
+            animator.Play("swordParry", -1, 0f);
+        }
         StartCoroutine(DisableAnimatorAfterAnimation());
     }
 
@@ -63,7 +69,6 @@ public class PlayerSword : MonoBehaviour
     {
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
         animator.enabled = false;
-        print("Animator Disabled, You Can Rotate Now!");
     }
     public void HitProjectile(Projectile projectile)
     {

@@ -197,6 +197,7 @@ MonoBehaviour:
   parrying: 0
   playerTransform: {fileID: 2189372705022867122}
   parryDamage: 1
+  parryVelocity: 2
   KnockbackForce: 700
   animator: {fileID: 1897485915372084544}
 --- !u!95 &1897485915372084544
@@ -321,6 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72b2cb2f183ea245bf07ab096bf1aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: 3
   movementSpd: 2
   canMove: 1
   parryDuration: 0.3

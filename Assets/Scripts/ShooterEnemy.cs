@@ -33,7 +33,6 @@ public class ShooterEnemy : Enemy
                 newProjectile.GetComponent<Projectile>().speed = projectileSpeed;
 
                 projectiles--;
-                Debug.Log("Shoot");
                 shotWait = timeBetweenProjectiles;
             }
             yield return null;
