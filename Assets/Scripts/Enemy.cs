@@ -96,9 +96,15 @@ public abstract class Enemy : MonoBehaviour
     {
         dashDirection = (targetPos - (Vector2)transform.position).normalized;
         dashDirection /= dashDirection.magnitude;
+        
         isDashing = true;
         moving = false;
         float dashTime = time;
+
+        Vector2 direction = targetPos - (Vector2)transform.position;
+        float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
+
+        spriteTransform.rotation = Quaternion.Euler(0, 0, angle + rotationOffset);
 
         while (dashTime > 0f)
         {
