@@ -99,7 +99,7 @@ public class PlayerSword : MonoBehaviour
         Rigidbody2D enemyRB = enemy.GetComponent<Rigidbody2D>();
         Vector2 Knockback = ((Vector2)(playerTransform.position - enemy.transform.position).normalized) * -KnockbackForce;
         enemyRB.AddForce(Knockback);
-
+        //glah
         enemy.Hurt(parryDamage);
         //bush did 9/11
     }
