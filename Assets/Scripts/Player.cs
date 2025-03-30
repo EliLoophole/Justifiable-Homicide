@@ -79,15 +79,15 @@ public class Player : MonoBehaviour
         scale.x = -scale.x;
         transform.localScale = scale;
 
-        //This is supposed to flip thw sword but it works without it for some reason
 
-        /*Vector3 swordScale = sword.transform.localScale;
+
+        Vector3 swordScale = sword.transform.localScale;
         print(swordScale);
         swordScale.y = -swordScale.y;
         swordScale.x = -swordScale.x;
         print(swordScale);
         sword.transform.localScale = swordScale;
-        print("Sword Flipped!");*/
+        print("Sword Flipped!");
     }
 
     private void Move()

@@ -21,6 +21,7 @@ public class PlayerSword : MonoBehaviour
         transform = GetComponent<Transform>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        animator.enabled = false;
     }
 
     // Update is called once per frame
@@ -55,8 +56,15 @@ public class PlayerSword : MonoBehaviour
         animator.enabled = true;
         animator.Play("swordParry",-1,0f);
         print("Parry Animation Played!");
-    }    
+        StartCoroutine(DisableAnimatorAfterAnimation());
+    }
 
+    private IEnumerator DisableAnimatorAfterAnimation()
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+        animator.enabled = false;
+        print("Animator Disabled, You Can Rotate Now!");
+    }
     public void HitProjectile(Projectile projectile)
     {
         ParryAnimation();
