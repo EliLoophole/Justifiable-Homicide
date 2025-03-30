@@ -96,6 +96,7 @@ public class PlayerSword : MonoBehaviour
     public void HitEnemy(Enemy enemy)
     {
         ParryAnimation();
+        Instantiate(parryParticles,transform.position,Quaternion.identity);
         Rigidbody2D enemyRB = enemy.GetComponent<Rigidbody2D>();
         Vector2 Knockback = ((Vector2)(playerTransform.position - enemy.transform.position).normalized) * -KnockbackForce;
         enemyRB.AddForce(Knockback);
