@@ -23,11 +23,19 @@ public class Player : MonoBehaviour
     private SpriteRenderer swordSprite;
     private Color originalColor;
 
+    private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private Sprite frontView;
+    [SerializeField]
+    private Sprite backView;
+
     void Start()
     {
         swordSprite = sword.GetComponentInChildren<SpriteRenderer>();
         swordScript = sword.GetComponent<PlayerSword>();
         swordAnimator = sword.GetComponent<Animator>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -46,6 +54,19 @@ public class Player : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = transform.position.z;
         
+
+        if (mousePos.y > transform.position.y+2)
+        {
+            Debug.Log("Mouse y: " + mousePos.y);
+            spriteRenderer.sprite = backView;
+        }
+        else
+        {
+            Debug.Log("Mouse y: "+ mousePos.y);
+            spriteRenderer.sprite = frontView;
+        }
+
+
         float angle = Mathf.Atan2(mousePos.y - transform.position.y,mousePos.x - transform.position.x);
 
         Vector3 newPositon = transform.position + new Vector3(Mathf.Cos(angle),Mathf.Sin(angle)*.5f);
