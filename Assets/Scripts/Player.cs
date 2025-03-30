@@ -57,12 +57,12 @@ public class Player : MonoBehaviour
 
         if (mousePos.y > transform.position.y+2)
         {
-            Debug.Log("Mouse y: " + mousePos.y);
+            //Debug.Log("Mouse y: " + mousePos.y);
             spriteRenderer.sprite = backView;
         }
         else
         {
-            Debug.Log("Mouse y: "+ mousePos.y);
+            //Debug.Log("Mouse y: "+ mousePos.y);
             spriteRenderer.sprite = frontView;
         }
 
@@ -83,6 +83,11 @@ public class Player : MonoBehaviour
         {
             FlipObject();
         }
+    }
+
+    void FixedUpdate()
+    {
+        Move();
     }
 
     public IEnumerator Parry()
@@ -114,15 +119,14 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        movementDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
-        rb.velocity = movementDir * movementSpd;
+        if (canMove)
+        {
+            movementDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+            rb.velocity = movementDir * movementSpd;
+        }
 
     }
 
-    private void FixedUpdate()
-    {
-        if(canMove) Move();
-    }
 
     public void Hurt()
     {
