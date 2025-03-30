@@ -56,6 +56,8 @@ public class WaveManager : MonoBehaviour
 
         float totalWeight = 0;
 
+        Debug.Log("Total weight is: " + totalWeight);
+
         foreach (EnemyPackage enemy in enemyPool)
         {
             totalWeight += enemy.weight;
@@ -66,6 +68,8 @@ public class WaveManager : MonoBehaviour
         float iterativeWeight = 0f;
         foreach (var enemy in enemyPool)
         {
+            Debug.Log("Enemy check");
+
             iterativeWeight += enemy.weight;
             if (randomWeight <= iterativeWeight)
             {
@@ -81,6 +85,8 @@ public class WaveManager : MonoBehaviour
     {
 
         Vector2 spawnPos = GetValidSpawnPos();
+
+        Debug.Log("Spawned:", enemy.enemyPrefab);
 
         for(int i = 0; i < enemy.spawnAmount; i++)
         {
