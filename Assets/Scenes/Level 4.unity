@@ -31309,74 +31309,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: minSpawnDistance
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: timeBetweenSpawns
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: totalSpawnsInStage
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[1].weight
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[2].weight
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[3].weight
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[4].weight
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[0].spawnAmount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[1].enemyPrefab
-      value: 
-      objectReference: {fileID: 8362804900116420476, guid: 3e7c9da268eaf6d4886dee77cc44cac2, type: 3}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[1].spawnAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[2].enemyPrefab
-      value: 
-      objectReference: {fileID: 8362804900116420476, guid: 86560afd28426cc4f97a39bbe80e8134, type: 3}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[2].spawnAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[3].enemyPrefab
-      value: 
-      objectReference: {fileID: 8362804900116420476, guid: dcfe6267040fc414193834e1aa0d676e, type: 3}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[3].spawnAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[4].enemyPrefab
-      value: 
-      objectReference: {fileID: 8362804900116420476, guid: dcfe6267040fc414193834e1aa0d676e, type: 3}
-    - target: {fileID: 1549673582925835254, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: enemyPool.Array.data[4].spawnAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1617380618748614634, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.4856634
@@ -31415,10 +31347,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1617380618748614634, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2942233599878758106, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5104131182318390148, guid: 8516026ba32d61943ac6fb51566d3be4, type: 3}

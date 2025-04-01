@@ -12,6 +12,21 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject winUI;
 
+    [SerializeField]
+    private GameObject pauseUI;
+
+
+    public void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape) && pauseUI.activeSelf == false)
+        {
+            Pause();
+        } else if (Input.GetKeyUp(KeyCode.Escape) && pauseUI.activeSelf == true)
+        {
+            pauseUI.SetActive(false);
+            Time.timeScale = 1f;
+        }
+    }
     public void StartGame()
     {
         SceneManager.LoadScene("Level 1");
@@ -40,5 +55,18 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextScene);
+    }
+
+    public void ExitGame()
+    {
+        print("exit");
+        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+        pauseUI.SetActive(true);
     }
 }
