@@ -234,7 +234,9 @@ MonoBehaviour:
   transform: {fileID: 0}
   distanceFromPlayer: 0
   deathParticles: {fileID: 8693727882541067677, guid: 4abe71b25704c1d4e858049320c21be9, type: 3}
+  animator: {fileID: 0}
   dashLength: 0.1
+  windupTime: 0.2
   dashSpeed: 15
 --- !u!1001 &3360011516507236482
 PrefabInstance:

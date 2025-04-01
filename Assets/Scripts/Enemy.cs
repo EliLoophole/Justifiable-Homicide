@@ -41,6 +41,8 @@ public abstract class Enemy : MonoBehaviour
 
     public GameObject deathParticles;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,14 +53,13 @@ public abstract class Enemy : MonoBehaviour
         spriteTransform = GetComponentInChildren<SpriteRenderer>().transform;
         rb = GetComponent<Rigidbody2D>();
         
-
+        animator = GetComponentInChildren<Animator>();
+        StartCoroutine(UpdateDistance());
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        distanceFromPlayer = (transform.position - playerTransform.position).magnitude;
 
         if(stunTime > 0f)
         {
@@ -74,6 +75,17 @@ public abstract class Enemy : MonoBehaviour
             Move();
         }
         AttackCheck();
+    }
+
+    private IEnumerator UpdateDistance()
+    {
+        if(playerTransform != null)
+        {
+            distanceFromPlayer = (transform.position - playerTransform.position).magnitude;
+        }
+
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(UpdateDistance());
     }
 
     public void Move()

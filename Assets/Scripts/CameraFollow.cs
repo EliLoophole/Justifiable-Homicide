@@ -17,7 +17,10 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AdjustPosition();
+        if (playerTransform != null)
+        {
+            AdjustPosition();
+        }
     }
 
     private void AdjustPosition()
