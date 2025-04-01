@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float dashSpd = 5f;
 
-    private float dashTimer;
+    public float dashTimer = 0f;
     public float dashCooldown = 3f;
 
     private float parryTimer = 0f;
@@ -67,8 +67,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Move();
+        GetMovement();
 
         if(Input.GetMouseButtonDown(1) && parryTimer <= 0f)
         {
@@ -156,11 +155,15 @@ public class Player : MonoBehaviour
         sword.transform.localScale = swordScale;
     }
 
-    private void Move()
+    void FixedUpdate()
+    {
+        if (canMove) rb.MovePosition(rb.position + (movementDir * movementSpd * Time.fixedDeltaTime));
+    }
+
+    private void GetMovement()
     {
         if (canMove)
         {
-
             movementDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
             if(Input.GetKeyDown(KeyCode.Space) && dashTimer <= 0f)
@@ -172,7 +175,6 @@ public class Player : MonoBehaviour
                 dashTimer -= Time.deltaTime;
             }
     
-            transform.Translate(movementDir * movementSpd * Time.deltaTime);
             if (movementDir.magnitude > 0.1f)
             {
                 playerAnimator.SetBool("walking",true);
