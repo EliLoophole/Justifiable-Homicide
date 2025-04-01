@@ -110,7 +110,7 @@ public class WaveManager : MonoBehaviour
 
         enemiesActive = enemies.Length;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         if(enemiesActive < 1 && totalSpawnsInStage < 1)
         {
@@ -150,7 +150,7 @@ public class WaveManager : MonoBehaviour
 
     void HandleSpawning()
     {
-        if(totalSpawnsInStage > 1)
+        if(totalSpawnsInStage >= 1)
         {
             
             if(spawning)
