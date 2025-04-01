@@ -44,15 +44,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16471a01d0c2e6645934bde4c5489fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenSpawns: 1
+  timeBetweenSpawns: 1.5
   spawning: 1
-  totalSpawnsInStage: 10
-  MinEnemyCount: 3
-  MaxEnemyCount: 6
-  enemyPool: []
+  totalSpawnsInStage: 20
+  MinEnemyCount: 5
+  MaxEnemyCount: 10
+  enemyPool:
+  - enemyPrefab: {fileID: 8362804900116420476, guid: 3e7c9da268eaf6d4886dee77cc44cac2, type: 3}
+    spawnAmount: 3
+    weight: 1
+  - enemyPrefab: {fileID: 8362804900116420476, guid: 86560afd28426cc4f97a39bbe80e8134, type: 3}
+    spawnAmount: 1
+    weight: 1
+  - enemyPrefab: {fileID: 8362804900116420476, guid: 3e7c9da268eaf6d4886dee77cc44cac2, type: 3}
+    spawnAmount: 1
+    weight: 3
   playerTransform: {fileID: 0}
-  minSpawnDistance: 10
-  maxSpawnDistance: 30
+  minSpawnDistance: 5
+  maxSpawnDistance: 15
   terrainLayer:
     serializedVersion: 2
     m_Bits: 256

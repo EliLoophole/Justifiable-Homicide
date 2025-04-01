@@ -9,9 +9,22 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private float movementSpd = 1f;
+    [SerializeField]
+    private float dashSpd = 5f;
+
+    private float dashTimer;
+    public float dashCooldown = 3f;
+
+    private float parryTimer = 0f;
+    public float parryCooldown= 2f;
+
     public bool canMove = true;
 
     public float parryDuration = 0.2f;
+
+    public GameObject deathParticles;
+
+    private GameManager gameManager;
 
     private Rigidbody2D rb;
     private Vector2 movementDir;
@@ -19,6 +32,7 @@ public class Player : MonoBehaviour
     private GameObject sword;
     private PlayerSword swordScript;
     private Animator swordAnimator;
+    //private Transform transform;
 
     private SpriteRenderer swordSprite;
     private Color originalColor;
@@ -35,6 +49,10 @@ public class Player : MonoBehaviour
         swordScript = sword.GetComponent<PlayerSword>();
         swordAnimator = sword.GetComponent<Animator>();
 
+        gameManager = FindObjectOfType<GameManager>();
+
+        //transform = this.transform;
+
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         rb = GetComponent<Rigidbody2D>();
@@ -46,14 +64,27 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(1) && parryTimer <= 0f)
         {
             StartCoroutine(Parry());
+            Debug.Log("Parrying");
+        }
+        else
+        {
+            parryTimer -= Time.deltaTime;
         }
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = transform.position.z;
         
+        if(Input.GetKeyDown(KeyCode.Space) && dashTimer <= 0f)
+        {
+            StartCoroutine(Dash((Vector2)mousePos));
+        }
+        else
+        {
+            dashTimer -= Time.deltaTime;
+        }
 
         if (mousePos.y > transform.position.y+2)
         {
@@ -92,6 +123,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator Parry()
     {
+        parryTimer = parryCooldown;
         swordSprite.color = Color.yellow;
         canMove = false;
         swordScript.parrying = true;
@@ -101,6 +133,12 @@ public class Player : MonoBehaviour
         swordScript.parrying = false;
         swordSprite.color = originalColor;
         canMove = true;
+    }
+
+    public void RefreshCooldowns(bool dash, bool parry)
+    {
+        if(dash) dashTimer = 0f;
+        if(parry) parryTimer = 0f;
     }
 
     void FlipObject()
@@ -127,6 +165,23 @@ public class Player : MonoBehaviour
 
     }
 
+    public IEnumerator Dash(Vector2 targetPos)
+    {
+        Debug.Log("Dashing");
+
+        canMove = false;
+
+        Vector2 dashDirection;
+        dashDirection = (targetPos - (Vector2)transform.position).normalized;
+        dashDirection /= dashDirection.magnitude;
+
+        rb.velocity += dashDirection * dashSpd;
+        dashTimer = dashCooldown;
+
+        yield return new WaitForSeconds(0.5f);
+
+        canMove = true;
+    }
 
     public void Hurt()
     {
@@ -139,6 +194,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        print("man im dead");
+        gameManager.EndGame();
+        Instantiate(deathParticles,transform.position,Quaternion.identity);
     }
 }

@@ -8,6 +8,7 @@ public class PlayerSword : MonoBehaviour
     private Rigidbody2D rb;
     private Transform transform;
     public Transform playerTransform;
+    public Player player;
 
     public GameObject parryParticles;
 
@@ -21,15 +22,12 @@ public class PlayerSword : MonoBehaviour
     void Start()
     {
         transform = GetComponent<Transform>();
+
+        player = FindObjectOfType<Player>();
+
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         animator.enabled = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -39,7 +37,12 @@ public class PlayerSword : MonoBehaviour
         {
             if (parrying && enemy.deadly && enemy.stunTime <= 0f)
             {
-                HitEnemy(enemy);
+                HitEnemy(enemy,1,1f,parryParticles);
+                OnSuccessfulParry();
+            }
+            else if (enemy.deadly && enemy.stunTime <= 0f)
+            {
+                HitEnemy(enemy,0,0.5f,null);
             }
         }
 
@@ -76,7 +79,7 @@ public class PlayerSword : MonoBehaviour
     {
         ParryAnimation();
 
-        Instantiate(parryParticles,transform.position,Quaternion.identity);
+        OnSuccessfulParry();
 
         if(projectile.destroyOnParry)
         {
@@ -93,15 +96,21 @@ public class PlayerSword : MonoBehaviour
         projectile.transform.rotation = Quaternion.Euler(0,0,angle-90);
         projectile.speed *= parryVelocity;
     }
-    public void HitEnemy(Enemy enemy)
+    public void HitEnemy(Enemy enemy, int damage, float knockbackMultiplier,GameObject particles)
+    {
+        Rigidbody2D enemyRB = enemy.GetComponent<Rigidbody2D>();
+        Vector2 Knockback = ((Vector2)(playerTransform.position - enemy.transform.position).normalized) * -KnockbackForce * knockbackMultiplier;
+        enemyRB.AddForce(Knockback);
+        //glah
+        enemy.Hurt(damage);
+        //bush did 9/11
+    }
+
+    private void OnSuccessfulParry()
     {
         ParryAnimation();
         Instantiate(parryParticles,transform.position,Quaternion.identity);
-        Rigidbody2D enemyRB = enemy.GetComponent<Rigidbody2D>();
-        Vector2 Knockback = ((Vector2)(playerTransform.position - enemy.transform.position).normalized) * -KnockbackForce;
-        enemyRB.AddForce(Knockback);
-        //glah
-        enemy.Hurt(parryDamage);
-        //bush did 9/11
+        player.RefreshCooldowns(true,true);
     }
+
 }

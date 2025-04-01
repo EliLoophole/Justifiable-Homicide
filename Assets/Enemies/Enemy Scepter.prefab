@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238956320384157438}
   - component: {fileID: 8239902494804381514}
+  - component: {fileID: 1558402774788016558}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1558402774788016558
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258289977143643067}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 55e0c00b225836240a00659759063135, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8362804900116420476
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +234,7 @@ MonoBehaviour:
   transform: {fileID: 0}
   distanceFromPlayer: 0
   deathParticles: {fileID: 8693727882541067677, guid: 4abe71b25704c1d4e858049320c21be9, type: 3}
-  projectileSpeed: 2.5
+  projectileSpeed: 2
   projectileCount: 1
   timeBetweenProjectiles: 0.5
   projectile: {fileID: 1971858668310610473, guid: d2984ae547ac55548aa493ec97110edd, type: 3}

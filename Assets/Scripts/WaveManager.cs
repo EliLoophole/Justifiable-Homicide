@@ -128,6 +128,10 @@ public class WaveManager : MonoBehaviour
             {
                 return spawnPosition;
             }
+            else
+            {
+                Debug.Log("Hit Terrain");
+            }
         }
 
         return playerTransform.position;

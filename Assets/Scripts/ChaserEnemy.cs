@@ -6,6 +6,6 @@ public class DaggerEnemy : Enemy
 {
     public override IEnumerator Attack()
     {
-        return null;
+        yield return new WaitForSeconds(1f);
     }
 }
