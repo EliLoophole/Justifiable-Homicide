@@ -109,7 +109,8 @@ public class WaveManager : MonoBehaviour
         Enemy[] enemies = FindObjectsOfType<Enemy>();
 
         enemiesActive = enemies.Length;
-        yield return new WaitForSeconds(2f);
+
+        yield return new WaitForSeconds(1f);
 
         if(enemiesActive < 1 && totalSpawnsInStage < 1)
         {

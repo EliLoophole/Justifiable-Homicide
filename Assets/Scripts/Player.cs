@@ -75,22 +75,22 @@ public class Player : MonoBehaviour
             StartCoroutine(Parry());
             Debug.Log("Parrying");
         }
-        else
+        else if(!swordScript.parrying)
         {
             parryTimer -= Time.deltaTime;
+
+            float shade = 0.6f - 0.3f*(parryTimer / parryCooldown);
+
+            if(parryTimer/parryCooldown < 0.001) shade = 1f;
+
+            Color rechargingColor = new Color(shade,shade,shade);
+
+            swordSprite.color = rechargingColor;
         }
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = transform.position.z;
-        
-        if(Input.GetKeyDown(KeyCode.Space) && dashTimer <= 0f)
-        {
-            StartCoroutine(Dash((Vector2)mousePos));
-        }
-        else
-        {
-            dashTimer -= Time.deltaTime;
-        }
+    
 
         if (mousePos.y > transform.position.y+2)
         {
@@ -160,7 +160,18 @@ public class Player : MonoBehaviour
     {
         if (canMove)
         {
+
             movementDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+
+            if(Input.GetKeyDown(KeyCode.Space) && dashTimer <= 0f)
+            {
+                StartCoroutine(Dash(movementDir));
+            }
+            else
+            {
+                dashTimer -= Time.deltaTime;
+            }
+    
             transform.Translate(movementDir * movementSpd * Time.deltaTime);
             if (movementDir.magnitude > 0.1f)
             {
@@ -178,20 +189,16 @@ public class Player : MonoBehaviour
 
     }
 
-    public IEnumerator Dash(Vector2 targetPos)
+    public IEnumerator Dash(Vector2 direction)
     {
         Debug.Log("Dashing");
 
         canMove = false;
 
-        Vector2 dashDirection;
-        dashDirection = (targetPos - (Vector2)transform.position).normalized;
-        dashDirection /= dashDirection.magnitude;
-
-        rb.velocity += dashDirection * dashSpd;
+        rb.velocity += direction * dashSpd;
         dashTimer = dashCooldown;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
 
         canMove = true;
     }
