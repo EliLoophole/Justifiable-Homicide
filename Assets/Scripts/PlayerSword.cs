@@ -32,7 +32,8 @@ public class PlayerSword : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Enemy enemy = other.gameObject.GetComponent<Enemy>();
+        Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
+
         if(enemy != null)
         {
             if (parrying && enemy.deadly && enemy.stunTime <= 0f)

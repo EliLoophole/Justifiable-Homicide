@@ -217,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3835627965831387890, guid: fa2312cb9ab536e46bb6cc9305fda667, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4202790577010734637, guid: fa2312cb9ab536e46bb6cc9305fda667, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -244,6 +248,22 @@ PrefabInstance:
     - target: {fileID: 4202790577010734637, guid: fa2312cb9ab536e46bb6cc9305fda667, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775656432720985581, guid: fa2312cb9ab536e46bb6cc9305fda667, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775656432720985581, guid: fa2312cb9ab536e46bb6cc9305fda667, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 3480
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775656432720985581, guid: fa2312cb9ab536e46bb6cc9305fda667, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 2160
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958465236571717648, guid: fa2312cb9ab536e46bb6cc9305fda667, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
