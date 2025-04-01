@@ -150,7 +150,7 @@ public class WaveManager : MonoBehaviour
 
     void HandleSpawning()
     {
-        if(totalSpawnsInStage >= 1)
+        if(totalSpawnsInStage > 0)
         {
             
             if(spawning)
@@ -165,6 +165,8 @@ public class WaveManager : MonoBehaviour
                 }
             }
 
+        }
+
             if(enemiesActive > MaxEnemyCount)
             {
                 spawning = false;
@@ -174,7 +176,6 @@ public class WaveManager : MonoBehaviour
                 spawning = true;
             }
 
-        }
     }
 
 }
