@@ -46,7 +46,9 @@ public class PlayerSword : MonoBehaviour
                 HitEnemy(enemy,0,0.5f,null);
             }
         }
-
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
         Projectile projectile = other.gameObject.GetComponent<Projectile>();
         if (projectile != null)
         {
