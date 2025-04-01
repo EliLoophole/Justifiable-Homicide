@@ -30,7 +30,7 @@ public class PlayerSword : MonoBehaviour
         animator.enabled = false;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         Enemy enemy = other.gameObject.GetComponentInParent<Enemy>();
 
@@ -47,7 +47,7 @@ public class PlayerSword : MonoBehaviour
             }
         }
 
-        Projectile projectile = other.GetComponent<Projectile>();
+        Projectile projectile = other.gameObject.GetComponent<Projectile>();
         if (projectile != null)
         {
             if (parrying)
@@ -105,7 +105,7 @@ public class PlayerSword : MonoBehaviour
     {
         Rigidbody2D enemyRB = enemy.GetComponent<Rigidbody2D>();
         Vector2 Knockback = ((Vector2)(playerTransform.position - enemy.transform.position).normalized) * -KnockbackForce * knockbackMultiplier;
-        enemyRB.AddForce(Knockback);
+        enemyRB.velocity = Knockback;
         //glah
         enemy.Hurt(damage);
         //bush did 9/11

@@ -120,19 +120,21 @@ public abstract class Enemy : MonoBehaviour
 
         spriteTransform.rotation = Quaternion.Euler(0, 0, angle + rotationOffset);
 
-        while (dashTime > 0f)
+        while (isDashing)
         {
             moving = false;
             dashTime -= Time.deltaTime;
 
-            if(stunTime > 0f)
+            if(stunTime <= 0f)
+            {
+                rb.velocity = (dashDirection * speed);
+            }
+            else
             {
                 isDashing = false;
                 moving = true;
                 yield break;
             }
-
-            transform.Translate(dashDirection.normalized * speed * Time.deltaTime);
 
             if (dashTime < 0f)
             {
