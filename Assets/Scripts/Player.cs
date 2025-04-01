@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private float parryTimer = 0f;
     public float parryCooldown= 2f;
 
+    public Color parryColor;
+
     public bool canMove = true;
 
     public float parryDuration = 0.2f;
@@ -37,11 +39,15 @@ public class Player : MonoBehaviour
     private SpriteRenderer swordSprite;
     private Color originalColor;
 
+    [SerializeField]
     private SpriteRenderer spriteRenderer;
     [SerializeField]
     private Sprite frontView;
     [SerializeField]
     private Sprite backView;
+
+    [SerializeField]
+    private Animator playerAnimator;
 
     void Start()
     {
@@ -53,8 +59,6 @@ public class Player : MonoBehaviour
 
         //transform = this.transform;
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
         rb = GetComponent<Rigidbody2D>();
 
         originalColor = swordSprite.color;
@@ -63,6 +67,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Move();
 
         if(Input.GetMouseButtonDown(1) && parryTimer <= 0f)
         {
@@ -116,15 +122,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        Move();
-    }
-
     public IEnumerator Parry()
     {
         parryTimer = parryCooldown;
-        swordSprite.color = Color.yellow;
+        swordSprite.color = parryColor;
         canMove = false;
         swordScript.parrying = true;
 
@@ -159,8 +160,20 @@ public class Player : MonoBehaviour
     {
         if (canMove)
         {
-            movementDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
-            rb.velocity = movementDir * movementSpd;
+            movementDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+            transform.Translate(movementDir * movementSpd * Time.deltaTime);
+            if (movementDir.magnitude > 0.1f)
+            {
+                playerAnimator.SetBool("walking",true);
+            }
+            else
+            {
+                playerAnimator.SetBool("walking",false);
+            }
+        }
+        else
+        {
+            playerAnimator.SetBool("walking",false);
         }
 
     }

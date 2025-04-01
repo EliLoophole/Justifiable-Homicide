@@ -19,12 +19,13 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
-        Time.timeScale = 0.1f;
+        Time.timeScale = 0.03f;
         loseUI.SetActive(true);
     }
 
     public void Win()
     {
+        Time.timeScale = 0.03f;
         winUI.SetActive(true);
     }
 
