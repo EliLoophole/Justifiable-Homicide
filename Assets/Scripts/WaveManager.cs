@@ -109,7 +109,6 @@ public class WaveManager : MonoBehaviour
         Enemy[] enemies = FindObjectsOfType<Enemy>();
 
         enemiesActive = enemies.Length;
-        Debug.Log(enemiesActive+ " " + totalSpawnsInStage);
         yield return new WaitForSeconds(2f);
 
         if(enemiesActive < 1 && totalSpawnsInStage < 1)
