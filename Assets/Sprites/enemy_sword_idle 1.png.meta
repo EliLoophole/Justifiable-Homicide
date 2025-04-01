@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9704857e9ea7db14cb1bf2c069e8a6c9
+guid: 800b92f1b8615064ca32bdbc50958b4a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_sword_idle_0
+      name: enemy_sword_idle 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 86
-        height: 111
+        width: 52
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73e97bc531814b44aaef74933e632314
-      internalID: 667096137
+      spriteID: 24eea6b6bac4e1d4dbac80482074fbb3
+      internalID: 1139516418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_sword_idle_1
+      name: enemy_sword_idle 1_1
       rect:
         serializedVersion: 2
-        x: 86
+        x: 52
         y: 0
-        width: 86
-        height: 111
+        width: 52
+        height: 126
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97f4f24402bed8c4bb32260e745a1b09
-      internalID: -334550283
+      spriteID: ee8f49e6ceaf85d419a5062792b27d77
+      internalID: 427236718
       vertices: []
       indices: 
       edges: []
@@ -149,8 +149,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy_sword_idle_0: 667096137
-      enemy_sword_idle_1: -334550283
+      enemy_sword_idle 1_0: 1139516418
+      enemy_sword_idle 1_1: 427236718
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

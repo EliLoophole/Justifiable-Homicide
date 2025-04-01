@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            Enemy enemy = other.GetComponent<Enemy>();
+            Enemy enemy = other.GetComponentInParent<Enemy>();
             if (enemy != null && canHitEnemies)
             {
                 enemy.Hurt(1);

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 238956320384157438}
   - component: {fileID: 8239902494804381514}
   - component: {fileID: 5574401498937042449}
+  - component: {fileID: 5131477849499623414}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -106,6 +107,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &5131477849499623414
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258289977143643067}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.014784515, y: 0.4147141}
+  m_Size: {x: 0.33416808, y: 0.6172409}
+  m_Direction: 0
 --- !u!1 &8362804900116420476
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +153,6 @@ GameObject:
   - component: {fileID: 3240829834938569247}
   - component: {fileID: 3210150577793819986}
   - component: {fileID: 8976533768668477424}
-  - component: {fileID: 4466393964039788821}
   m_Layer: 0
   m_Name: Enemy Spear
   m_TagString: Untagged
@@ -201,41 +236,6 @@ MonoBehaviour:
   deathParticles: {fileID: 8693727882541067677, guid: 4abe71b25704c1d4e858049320c21be9, type: 3}
   dashLength: 0.1
   dashSpeed: 15
---- !u!70 &4466393964039788821
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8362804900116420476}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.014784515, y: 0.4147141}
-  m_Size: {x: 0.33416808, y: 0.6172409}
-  m_Direction: 0
 --- !u!1001 &3360011516507236482
 PrefabInstance:
   m_ObjectHideFlags: 0

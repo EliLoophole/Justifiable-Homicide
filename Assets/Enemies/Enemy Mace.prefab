@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 238956320384157438}
   - component: {fileID: 8239902494804381514}
   - component: {fileID: 1977532470247493309}
+  - component: {fileID: 8276543856635843674}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -106,6 +107,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &8276543856635843674
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258289977143643067}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00029206276, y: 0.27836883}
+  m_Size: {x: 0.6017704, y: 0.6220075}
+  m_Direction: 0
 --- !u!1 &8362804900116420476
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +153,6 @@ GameObject:
   - component: {fileID: 3240829834938569247}
   - component: {fileID: 3210150577793819986}
   - component: {fileID: 3772203295592440373}
-  - component: {fileID: 3129668353307843584}
   m_Layer: 0
   m_Name: Enemy Mace
   m_TagString: Untagged
@@ -199,41 +234,6 @@ MonoBehaviour:
   transform: {fileID: 0}
   distanceFromPlayer: 0
   deathParticles: {fileID: 8693727882541067677, guid: 4abe71b25704c1d4e858049320c21be9, type: 3}
---- !u!70 &3129668353307843584
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8362804900116420476}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.040182114, y: 0.16875088}
-  m_Size: {x: 0.41963577, y: 0.467932}
-  m_Direction: 0
 --- !u!1001 &6204658637923300561
 PrefabInstance:
   m_ObjectHideFlags: 0
