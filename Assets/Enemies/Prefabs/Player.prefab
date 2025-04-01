@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7400165257763430355}
   - component: {fileID: 2640543329651012240}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3254433701332666334}
   - component: {fileID: 7676438203562402846}
   - component: {fileID: 1897485915372084544}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.007947803, y: 0}
@@ -200,7 +200,7 @@ MonoBehaviour:
   parryParticles: {fileID: 8693727882541067677, guid: e3c539350b222af429f90505be042ffc, type: 3}
   parryDamage: 1
   parryVelocity: 1.5
-  KnockbackForce: 700
+  KnockbackForce: 10
   animator: {fileID: 1897485915372084544}
 --- !u!95 &1897485915372084544
 Animator:
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 6710677055546245691}
   - component: {fileID: 3065613058523777300}
   - component: {fileID: 5572681331288446356}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: -757203829324341631}
   - component: {fileID: -2007358464978892082}
   - component: {fileID: 4595217235443562895}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,6 +381,7 @@ MonoBehaviour:
   lives: 1
   movementSpd: 4
   dashSpd: 50
+  dashTimer: 0
   dashCooldown: 2
   parryCooldown: 0.5
   parryColor: {r: 0.3075471, g: 0.9357249, b: 1, a: 1}
@@ -451,8 +452,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.71, y: 1.03}
+  m_Offset: {x: -0.009361267, y: -0.1600605}
+  m_Size: {x: 0.43232203, y: 0.73291963}
   m_Direction: 0
 --- !u!1001 &6614254810652422174
 PrefabInstance:
@@ -465,6 +466,10 @@ PrefabInstance:
     - target: {fileID: 1302683429441687792, guid: 0fada1740de5f6040a73754772007903, type: 3}
       propertyPath: m_Name
       value: Shadow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302683429441687792, guid: 0fada1740de5f6040a73754772007903, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6436272765579792117, guid: 0fada1740de5f6040a73754772007903, type: 3}
       propertyPath: m_LocalPosition.x
