@@ -122,32 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &295187317 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5348661669486716116, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-  m_PrefabInstance: {fileID: 1092388109}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &295187320
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295187317}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3774e437b9b73674da5f706384973464, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &311836794
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,26 +198,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -757203829324341631, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      propertyPath: parryColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -757203829324341631, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      propertyPath: parryColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -757203829324341631, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      propertyPath: parryColor.g
-      value: 0.9357249
-      objectReference: {fileID: 0}
-    - target: {fileID: -757203829324341631, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      propertyPath: parryColor.r
-      value: 0.3075471
-      objectReference: {fileID: 0}
-    - target: {fileID: -757203829324341631, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      propertyPath: playerAnimator
-      value: 
-      objectReference: {fileID: 295187320}
     - target: {fileID: 2189372705022867122, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -284,34 +238,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6710677055546245691, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.0247
-      objectReference: {fileID: 0}
-    - target: {fileID: 6710677055546245691, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.1255
-      objectReference: {fileID: 0}
-    - target: {fileID: 6710677055546245691, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6710677055546245691, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6710677055546245691, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6710677055546245691, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6710677055546245691, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8607365091482815463, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
       propertyPath: m_Name
       value: Player
@@ -319,10 +245,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5348661669486716116, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 295187320}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11f06e4ed1fbfe94a891f147fdc0fde9, type: 3}
 --- !u!1001 &1338450270
 PrefabInstance:
