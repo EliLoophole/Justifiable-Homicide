@@ -194,7 +194,8 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        gameManager.EndGame();
+        gameManager.Lose();
+        Destroy(this.gameObject);
         Instantiate(deathParticles,transform.position,Quaternion.identity);
     }
 }

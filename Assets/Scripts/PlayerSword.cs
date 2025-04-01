@@ -53,6 +53,10 @@ public class PlayerSword : MonoBehaviour
             {
                 HitProjectile(projectile);
             }
+            else if (projectile.blockable)
+            {
+                projectile.Kill();
+            }
         }
     }
 
