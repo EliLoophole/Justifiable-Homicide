@@ -32,10 +32,14 @@ public class WaveManager : MonoBehaviour
     public float maxSpawnDistance = 30f;
     public LayerMask terrainLayer; 
 
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
         spawnPos = new Vector2(0,0);
+
+        gameManager = GetComponent<GameManager>();
 
         playerTransform = FindObjectOfType<Player>().transform;
 
@@ -107,6 +111,12 @@ public class WaveManager : MonoBehaviour
         enemiesActive = enemies.Length;
 
         yield return new WaitForSeconds(2f);
+
+        if(enemiesActive < 1 && totalSpawnsInStage < 1)
+        {
+            gameManager.Win();
+        }
+
         StartCoroutine(CheckEnemyCount());
     }
 
@@ -127,6 +137,10 @@ public class WaveManager : MonoBehaviour
             if (!hit.collider)
             {
                 return spawnPosition;
+            }
+            else
+            {
+                Debug.Log("Hit Terrain");
             }
         }
 

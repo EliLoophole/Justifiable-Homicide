@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
 
     public bool gracePeriod = false;
     public bool destroyOnParry = false;
+    public bool blockable = true;
 
     public bool canHitEnemies = false;
 

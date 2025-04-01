@@ -169,6 +169,7 @@ MonoBehaviour:
   deathParticles: {fileID: 8693727882541067677, guid: 5cb0c0ee4afce73499710dc2ddf76677, type: 3}
   gracePeriod: 1
   destroyOnParry: 1
+  blockable: 0
   canHitEnemies: 1
 --- !u!198 &7002269604891377934
 ParticleSystem:

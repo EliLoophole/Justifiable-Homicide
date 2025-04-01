@@ -173,4 +173,17 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract IEnumerator Attack();
 
+    void OnCollisionEnter2D(Collision2D collision)
+        {
+            GameObject other = collision.gameObject;
+
+            Player player = other.GetComponent<Player>();
+            if (player != null && deadly)
+            {
+                player.Hurt();
+            }
+            
+        }
+
+
 }

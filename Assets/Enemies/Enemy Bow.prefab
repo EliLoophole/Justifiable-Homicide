@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238956320384157438}
   - component: {fileID: 8239902494804381514}
+  - component: {fileID: 1105090260226663259}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1105090260226663259
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258289977143643067}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67dcdd2ecb2e3ee45ac6b681df6fe13e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8362804900116420476
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +168,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &6316561186491564133
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -213,7 +235,7 @@ MonoBehaviour:
   distanceFromPlayer: 0
   deathParticles: {fileID: 8693727882541067677, guid: 4abe71b25704c1d4e858049320c21be9, type: 3}
   projectileSpeed: 8
-  projectileCount: 2
+  projectileCount: 1
   timeBetweenProjectiles: 0.5
   projectile: {fileID: 1971858668310610473, guid: 3998dcfcb90d2014996ff5c01c034397, type: 3}
 --- !u!1001 &3580542338761337586

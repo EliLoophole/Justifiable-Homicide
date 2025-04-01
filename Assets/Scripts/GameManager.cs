@@ -5,20 +5,39 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    private GameObject loseUI;
+
+    [SerializeField]
+    private GameObject winUI;
 
     public void StartGame()
     {
         SceneManager.LoadScene("TestScene");
+    }
+
+    public void Lose()
+    {
+        Time.timeScale = 0.1f;
+        loseUI.SetActive(true);
+    }
+
+    public void Win()
+    {
+        winUI.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void NextStage()
+    {
+        Time.timeScale = 1.0f;
+        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(nextScene);
     }
 }
