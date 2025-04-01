@@ -380,7 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 1
   movementSpd: 4
-  dashSpd: 50
+  dashSpd: 40
   dashTimer: 0
   dashCooldown: 2
   parryCooldown: 0.5

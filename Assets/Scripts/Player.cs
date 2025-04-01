@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
         mousePos.z = transform.position.z;
     
 
-        if (mousePos.y > transform.position.y+2)
+        if (mousePos.y > transform.position.y+0.5)
         {
             //Debug.Log("Mouse y: " + mousePos.y);
             spriteRenderer.sprite = backView;
@@ -150,7 +150,7 @@ public class Player : MonoBehaviour
 
 
         Vector3 swordScale = sword.transform.localScale;
-        swordScale.y = -swordScale.y;
+        //swordScale.y = -swordScale.y;
         swordScale.x = -swordScale.x;
         sword.transform.localScale = swordScale;
     }

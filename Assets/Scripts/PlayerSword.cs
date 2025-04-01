@@ -65,16 +65,16 @@ public class PlayerSword : MonoBehaviour
 
     public void ParryAnimation()
     {
-        animator.enabled = true;
+        //animator.enabled = true;
         if (transform.localScale.x < 0)
         {
-            animator.Play("swordParry_Flipped", -1, 0f);
+            //animator.Play("swordParry_Flipped", -1, 0f);
         }
         else
         {
-            animator.Play("swordParry", -1, 0f);
+            //animator.Play("swordParry", -1, 0f);
         }
-        StartCoroutine(DisableAnimatorAfterAnimation());
+        //StartCoroutine(DisableAnimatorAfterAnimation());
     }
 
     private IEnumerator DisableAnimatorAfterAnimation()

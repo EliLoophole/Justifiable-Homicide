@@ -22,7 +22,7 @@ public class WaveManager : MonoBehaviour
     public int MinEnemyCount = 3;
     public int MaxEnemyCount = 6;
 
-    private int enemiesActive = 0;
+    public int enemiesActive = 0;
     private Vector2 spawnPos;
 
     public List<EnemyPackage> enemyPool = new List<EnemyPackage>();
@@ -39,18 +39,18 @@ public class WaveManager : MonoBehaviour
     {
         spawnPos = new Vector2(0,0);
 
+        spawnTimer = timeBetweenSpawns * 1;
+
         gameManager = GetComponent<GameManager>();
 
         playerTransform = FindObjectOfType<Player>().transform;
 
-        CheckEnemyCount();
-        SpawnRandomEnemy();
+        StartCoroutine(CheckEnemyCount());
     }
 
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(CheckEnemyCount());
         HandleSpawning();
     }
 
@@ -110,14 +110,19 @@ public class WaveManager : MonoBehaviour
 
         enemiesActive = enemies.Length;
 
-        yield return new WaitForSeconds(1f);
+        TestWin();
 
+        yield return new WaitForSeconds(0.5f);
+
+        StartCoroutine(CheckEnemyCount());
+    }
+
+    public void TestWin()
+    {
         if(enemiesActive < 1 && totalSpawnsInStage < 1)
         {
             gameManager.Win();
         }
-
-        StartCoroutine(CheckEnemyCount());
     }
 
     Vector3 GetValidSpawnPos()

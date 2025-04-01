@@ -42,6 +42,7 @@ public abstract class Enemy : MonoBehaviour
     public GameObject deathParticles;
 
     public Animator animator;
+    private WaveManager waveManager;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,8 @@ public abstract class Enemy : MonoBehaviour
         playerTransform = player.GetComponent<Transform>();
         spriteTransform = GetComponentInChildren<SpriteRenderer>().transform;
         rb = GetComponent<Rigidbody2D>();
+        
+        waveManager = FindObjectOfType<WaveManager>();
         
         animator = GetComponentInChildren<Animator>();
         StartCoroutine(UpdateDistance());
@@ -163,6 +166,7 @@ public abstract class Enemy : MonoBehaviour
         //Award player moneys
         Instantiate(deathParticles,transform.position,Quaternion.identity);
         Destroy(this.gameObject);
+        waveManager.TestWin();
     }
 
     private void AttackCheck()
