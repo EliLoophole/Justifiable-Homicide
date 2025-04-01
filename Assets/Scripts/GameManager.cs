@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("TestScene");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void Lose()
