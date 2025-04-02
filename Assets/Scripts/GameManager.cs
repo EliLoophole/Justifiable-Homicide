@@ -61,7 +61,6 @@ public class GameManager : MonoBehaviour
     {
         print("exit");
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void Pause()
